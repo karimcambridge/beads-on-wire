@@ -24,10 +24,14 @@ int main()
 
 	fscanf(in, "%d %d", &beads, &boxes);
 	int i, j;
+	/*
+		The first row represent no beads
+		The first column represents no box
+	*/
 	for(i=0; i<=beads; i++){
-		A[i][0] = 0;
+		A[i][0] = 0; // fill first colum with 0
 		for(j = 0;j <= boxes; j++){
-			A[0][j] = 0;
+			A[0][j] = 0; // fill first row with 0
 			if(i >0 && j > 0){
 				fscanf(in,"%d", &A[i][j]);		
 			}			
@@ -48,7 +52,7 @@ int aesthectic(){
 	int i, j;
 	for(i=1; i<=beads; i++){		
 		for(j = 1;j <= boxes; j++){						
-			if(i == j){
+			if(i == j){ 
 				A[i][j] = A[i-1][j-1] + A[i][j];
 			}else if(j > i){
 				if(A[i][j - 1] > A[i - 1][j] + A[i][j]){
