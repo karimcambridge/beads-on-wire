@@ -66,10 +66,15 @@ int aesthectic(){
 	return A[beads][boxes];
 }
 
-void printOrder(int i, int j){
-	if(i ==0 || j == 0)return;
-	else if(A[i][j] > A[i][j-1] && A[i][j] > A[i-1][j]){
-		printOrder(i-1,j-1);
-		printf("box[%d] = bead %d \n", j, i);		
-	}else if(A[i][j] == A[i][j-1])printOrder(i,j-1);
+
+void printOrder(int i, int j) {
+	if(i == 0 || j == 0) {
+		return;
+	}
+	else if(arr[i][j] > arr[i][j - 1]) {
+		printOrder(i - 1, j - 1);
+		printf("box[%d] = bead %d \n", j, i);
+	} else {
+		printOrder(i, j - 1);
+	}
 }
